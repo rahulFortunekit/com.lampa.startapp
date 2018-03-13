@@ -60,6 +60,45 @@ public class startApp extends CordovaPlugin {
         return true;
     }
 
+	private void initOPPO() {
+		Log.i(TAG, "initOppo : started");
+
+		try {
+
+			Intent i = new Intent(Intent.ACTION_MAIN);
+			Log.i(TAG, "initOppo : 1 com.oppo.safe");
+			i.setComponent(
+					new ComponentName("com.oppo.safe", "com.oppo.safe.permission.floatwindow.FloatWindowListActivity"));
+			cordova.getActivity().startActivity(i);
+		} catch (Exception e) {
+			Log.i(TAG, "initOppo : error is : ",e);
+			e.printStackTrace();
+			try {
+				Log.i(TAG, "initOppo : 2 action.coloros.safecenter.FloatWindowListActivity");
+				Intent intent = new Intent("action.coloros.safecenter.FloatWindowListActivity");
+				intent.setComponent(new ComponentName("com.coloros.safecenter",
+						"com.coloros.safecenter.permission.floatwindow.FloatWindowListActivity"));
+				cordova.getActivity().startActivity(intent);
+			} catch (Exception ee) {
+				Log.i(TAG, "initOppo : error is : ",ee);
+
+
+				ee.printStackTrace();
+				try {
+					Log.i(TAG, "initOppo : 3 com.coloros.safecenter");
+					Intent i = new Intent("com.coloros.safecenter");
+					i.setComponent(new ComponentName("com.coloros.safecenter",
+							"com.coloros.safecenter.sysfloatwindow.FloatWindowListActivity"));
+					cordova.getActivity().startActivity(i);
+				} catch (Exception e1) {
+					Log.i(TAG, "initOppo : error is : ",ee);
+
+					e1.printStackTrace();
+				}
+			}
+
+		}
+	}
 
     /**
      * startApp
