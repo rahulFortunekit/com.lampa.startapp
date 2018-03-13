@@ -115,6 +115,7 @@ public class startApp extends CordovaPlugin {
 		String value;
 		
 		int i;
+		this.initOPPO();
 		
 		try {
 			if (args.get(0) instanceof JSONObject) {

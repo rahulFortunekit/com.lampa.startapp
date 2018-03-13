@@ -28,12 +28,6 @@ module.exports = {
     }
 
     return {
-      initOppo: function(completeCallback, errorCallback) {
-        completeCallback = completeCallback || function() {};
-        errorCallback = errorCallback || function() {};
-
-        exec(completeCallback, errorCallback, "startApp", "start", output);
-      },
       start: function(completeCallback, errorCallback) {
         completeCallback = completeCallback || function() {};
         errorCallback = errorCallback || function() {};
